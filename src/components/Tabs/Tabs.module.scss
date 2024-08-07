@@ -1,0 +1,30 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+
+  .tab {
+    width: 168px;
+    padding: 15px;
+    border: 1px solid rgb(223, 229, 236);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin: 0;
+    border-radius: 4px;
+    color: rgb(74, 74, 74);
+    font-family: 'Open Sans', serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &.active {
+      background-color: rgb(33, 150, 243);
+      border-color: rgb(33, 150, 243);
+      color: rgb(255, 255, 255);
+    }
+  }
+}
