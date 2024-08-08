@@ -35,7 +35,7 @@
       margin-right: 8px;
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       /* Убираем стандартный вид */
       -webkit-appearance: none;
       appearance: none;
@@ -51,14 +51,14 @@
       position: relative;
     }
 
-    input[type="checkbox"]:checked {
-      background-color:rgb(255, 255, 255);
+    input[type='checkbox']:checked {
+      background-color: rgb(255, 255, 255);
       border-color: rgb(33, 150, 243);
     }
 
-    input[type="checkbox"]:checked::before {
-      content: "\2714"; /* Код символа галочки */
-      font-size: 1.0em;
+    input[type='checkbox']:checked::before {
+      content: '\2714';
+      font-size: 1em;
       color: rgb(33, 150, 243);
       position: absolute;
       left: 5px;
