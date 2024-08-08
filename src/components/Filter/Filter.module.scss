@@ -6,8 +6,13 @@
   background: rgb(255, 255, 255);
   padding: 20px;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 0;
 
   h3 {
+    margin-top: 0;
     margin-bottom: 20px;
     color: rgb(74, 74, 74);
     font-family: 'Open Sans', serif;
@@ -65,4 +70,10 @@
       top: 2px;
     }
   }
+}
+
+@media (max-width: 470px){
+ .filter {
+   width: 100%;
+ }
 }

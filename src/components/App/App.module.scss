@@ -1,10 +1,14 @@
 .app {
+  font-family: 'Open Sans', serif;
   background: rgb(229, 229, 229);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:flex-start;
   align-items: center;
-  padding: 0px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  margin:0;
 
   .mainContent {
     display: flex;
@@ -15,11 +19,26 @@
 
   .flightList {
     width: 100%;
-    max-width: 600px;
+    //max-width: 600px;
   }
 
   .filter1 {
     align-self: flex-start;
+  }
+
+  .buttonShowMore {
+    border-radius: 5px;
+    background: rgb(33, 150, 243);
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    margin-bottom: 50px;
   }
 }
 
@@ -31,4 +50,35 @@
   .flightCard {
     padding: 12px;
   }
+
+  .buttonShowMore {
+    font-size: 10px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 470px){
+  .app {
+    padding: 4px;
+
+    .mainContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .flightCard {
+      padding: 8px;
+    }
+
+    .buttonShowMore {
+      font-size: 8px;
+      padding: 12px;
+    }
+  }
+
+
+
+
 }

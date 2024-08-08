@@ -2,26 +2,131 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #e0e0e0;
-  padding: 16px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  height: 184px;
 
-  .price {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 8px;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .price {
+      color: rgb(33, 150, 243);
+      font-family: 'Open Sans', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.5;
+      text-align: left;
+    }
   }
 
   .details {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    text-align: left;
 
-    .route,
-    .duration,
-    .transfers,
-    .airlines {
-      margin-bottom: 4px;
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 10px;
+      padding: 0;
+
+      .departure,
+      .duration,
+      .transfers {
+        font-family: 'Open Sans', serif;
+
+        .title {
+          text-align: left;
+          color: rgb(160, 176, 185);
+          font-size: 0.75rem;
+          line-height: 1.5;
+
+          text-transform: uppercase;
+          margin: 0;
+          padding: 0;
+        }
+
+        p {
+          color: rgb(74, 74, 74);
+          font-size: 0.875rem;
+          line-height: 1.5;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .flightCard {
+    padding: 15px;
+    height: auto;
+
+    .header {
+      flex-direction: row;
+      align-items: flex-start;
+
+      .price {
+        font-size: 1.25rem;
+      }
+    }
+
+    .details {
+      .schedule {
+        gap: 10px;
+
+        .departure,
+        .duration,
+        .transfers {
+          .title {
+            font-size: 0.75rem;
+          }
+
+          p {
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .flightCard {
+    padding: 10px;
+
+    .header {
+      .price {
+        font-size: 1rem;
+      }
+    }
+
+    .details {
+      .schedule {
+        gap: 8px;
+
+        .departure,
+        .duration,
+        .transfers {
+          .title {
+            font-size: 0.7rem;
+          }
+
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
     }
   }
 }

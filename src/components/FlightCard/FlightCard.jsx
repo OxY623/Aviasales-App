@@ -1,5 +1,7 @@
 import React from 'react'
 
+import CarrierImage from '../CarrierImage/CarrierImage'
+
 import styles from './FlightCard.module.scss'
 
 function formatTimeStr(dateStr, duration) {
@@ -64,9 +66,11 @@ const FlightCard = ({ price = 99, carrier = 'DP', segments = [] }) => {
     <div className={styles.flightCard}>
       <div className={styles.header}>
         <div className={styles.price}>{price} Р</div>
-        <div className={styles.carrier}>{carrier}</div>
+        <div className={styles.carrier}>
+          <CarrierImage carrier={carrier} />
+        </div>
       </div>
-      {listSchedule}
+      <div className={styles.details}>{listSchedule}</div>
     </div>
   )
 }
