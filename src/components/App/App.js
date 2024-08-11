@@ -1,56 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import FlightCard from '../FlightCard/FlightCard'
 import Filter from '../Filter/Filter'
 import Tabs from '../Tabs/Tabs'
 import Header from '../Header/Header'
+import { FlightContext } from '../../Context/FlightContext'
 
 import styles from './App.module.scss'
 
 const App = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [flights, setFlights] = useState([
-    {
-      price: 19950,
-      carrier: 'DP',
-      segments: [
-        {
-          origin: 'MOW',
-          destination: 'HKT',
-          date: '2024-07-07T19:23:37.881Z',
-          duration: 1214,
-          stops: ['DXB', 'JNB'],
-        },
-        {
-          origin: 'HKT',
-          destination: 'MOW',
-          date: '2024-10-03T10:37:28.129Z',
-          duration: 1425,
-          stops: ['DOH', 'HKG', 'JNB'],
-        },
-      ],
-    },
-    {
-      price: 19950,
-      carrier: 'DP',
-      segments: [
-        {
-          origin: 'MOW',
-          destination: 'HKT',
-          date: '2024-07-07T19:23:37.881Z',
-          duration: 1214,
-          stops: ['DXB', 'JNB'],
-        },
-        {
-          origin: 'HKT',
-          destination: 'MOW',
-          date: '2024-10-03T10:37:28.129Z',
-          duration: 1425,
-          stops: ['DOH', 'HKG', 'JNB'],
-        },
-      ],
-    },
-  ])
+  const { flights } = useContext(FlightContext)
 
   const [filterOptions, setFilterOptions] = useState([
     { value: 'all', label: 'Все', checked: false },
