@@ -1,38 +1,28 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 import FlightCard from '../FlightCard/FlightCard'
 import Filter from '../Filter/Filter'
 import Tabs from '../Tabs/Tabs'
 import Header from '../Header/Header'
-import { FlightContext } from '../../Context/FlightContext'
+import { FlightContext } from '../../context/FlightContext'
+import { setSort } from '../../store/actions/sortActions'
 
 import styles from './App.module.scss'
 
 const App = () => {
   const { flights } = useContext(FlightContext)
-
-  const [filterOptions, setFilterOptions] = useState([
-    { value: 'all', label: 'Все', checked: false },
-    { value: 'direct', label: 'Без пересадок', checked: true },
-    { value: 'one', label: '1 пересадка', checked: true },
-    { value: 'two', label: '2 пересадки', checked: true },
-    { value: 'three', label: '3 пересадки', checked: false },
-  ])
-
-  const [activeTab, setActiveTab] = useState('Самый дешевый')
+  const filterOptions = useSelector((state) => state.filters)
+  const tabs = useSelector((state) => state.tabs.tabs) // Достаем вкладки
+  const activeTab = useSelector((state) => state.tabs.activeTab) // Достаем активную вкладку
+  const dispatch = useDispatch()
 
   const handleFilterChange = (value) => {
-    setFilterOptions((prevOptions) =>
-      prevOptions.map((option) =>
-        option.value === value
-          ? { ...option, checked: !option.checked }
-          : option,
-      ),
-    )
+    dispatch({ type: 'TOGGLE_FILTER', payload: value })
   }
 
   const handleTabClick = (tab) => {
-    setActiveTab(tab)
+    dispatch(setSort(tab))
   }
 
   return (
@@ -42,8 +32,8 @@ const App = () => {
         <Filter options={filterOptions} onChange={handleFilterChange} />
         <div className={styles.wrapper}>
           <Tabs
-            tabs={['Самый дешевый', 'Самый быстрый', 'Оптимальный']}
-            activeTab={activeTab}
+            tabs={tabs} // Передаем вкладки в Tabs
+            activeTab={activeTab} // Передаем активную вкладку в Tabs
             onTabClick={handleTabClick}
           />
           <div className={styles.flightList}>
