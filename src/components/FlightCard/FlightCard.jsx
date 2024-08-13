@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CarrierImage from '../CarrierImage/CarrierImage'
+import CarrierImage from '../CarrierImage'
 
 import styles from './FlightCard.module.scss'
 
