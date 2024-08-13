@@ -1,23 +1,28 @@
 import { createStore, applyMiddleware } from 'redux'
-// eslint-disable-next-line import/default
+import { composeWithDevTools } from '@redux-devtools/extension'
 import { thunk } from 'redux-thunk'
 
-// import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 
-const loggerMiddleware = (store) => (next) => (action) => {
-  const result = next(action)
-  console.log('Middleware', store.getState())
-  return result
-}
-// Определение middleware, если необходимо
-const middleware = [loggerMiddleware, thunk] // Добавьте необходимые middleware сюда
+// Middleware для логирования
+// const loggerMiddleware = (store) => (next) => (action) => {
+//   const result = next(action)
+//   console.log(
+//     'Middleware',
+//
+//     store.getState(),
+//   )
+//   return result
+// }
 
-// Создание Redux store с middleware и DevTools
+// Определение middleware
+// const middleware = [loggerMiddleware]
+
+// Создание Redux хранилища с middleware и DevTools
 const store = createStore(
   rootReducer,
-  applyMiddleware(...middleware),
-  // composeWithDevTools(applyMiddleware(...middleware)),
+  composeWithDevTools(applyMiddleware(thunk)),
+  // applyMiddleware(...middleware)
 )
 
 export default store
