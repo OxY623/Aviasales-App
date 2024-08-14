@@ -1,0 +1,17 @@
+.content {
+  text-align: center;
+  color: rgb(33, 150, 243);
+
+  &__title{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: rgb(12, 89, 148);
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+}

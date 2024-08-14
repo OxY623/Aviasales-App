@@ -1,7 +1,12 @@
-import { SET_ACTIVE_TAB } from './actionTypes'
+import { SET_ACTIVE_TAB, SET_ACTIVE_TAB_SORTING } from './actionTypes'
 
 // Действие для установки активной вкладки
 export const setActiveTab = (tab) => ({
   type: SET_ACTIVE_TAB,
-  payload: tab, // Передаем название вкладки
+  payload: tab,
+})
+
+export const setActiveTabSorting = (tab) => ({
+  type: SET_ACTIVE_TAB_SORTING,
+  payload: tab,
 })

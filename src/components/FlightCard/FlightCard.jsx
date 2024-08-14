@@ -41,9 +41,9 @@ function formatParagraf(arr) {
 }
 
 const FlightCard = ({ price = 99, carrier = 'DP', segments = [] }) => {
-  let listSchedule = segments.map((segment) => {
+  let listSchedule = segments.map((segment, index) => {
     return (
-      <div key={segment.id} className={styles.schedule}>
+      <div key={index} className={styles.schedule}>
         <div className={styles.departure}>
           <h3
             className={styles.title}

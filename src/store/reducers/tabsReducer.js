@@ -1,4 +1,4 @@
-import { SET_ACTIVE_TAB } from '../actions/actionTypes'
+import { SET_ACTIVE_TAB_SORTING } from '../actions/actionTypes'
 
 const TAB_OPTIONS = {
   CHEAPEST: 'Самый дешевый',
@@ -6,20 +6,19 @@ const TAB_OPTIONS = {
   OPTIMAL: 'Оптимальный',
 }
 
-// const initialState = {
-//   tabs: ['Самый дешевый', 'Самый быстрый', 'Оптимальный'],
-//   activeTab: 'Самый дешевый', // Начальная активная вкладка
-// }
-
 const initialState = {
-  tabs: [TAB_OPTIONS.CHEAPEST, TAB_OPTIONS.FASTEST, TAB_OPTIONS.OPTIMAL],
-  activeTab: TAB_OPTIONS.CHEAPEST,
+  tabs: [
+    { id: 1, name: 'cheapest', label: TAB_OPTIONS.CHEAPEST },
+    { id: 2, name: 'fastest', label: TAB_OPTIONS.FASTEST },
+    { id: 3, name: 'optimal', label: TAB_OPTIONS.OPTIMAL },
+  ],
+  activeTab: 'cheapest', // Начальная активная вкладка
 }
 
 // Редьюсер для обработки состояния вкладок
 const tabsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_ACTIVE_TAB:
+    case SET_ACTIVE_TAB_SORTING:
       return {
         ...state,
         activeTab: action.payload, // Обновляем активную вкладку

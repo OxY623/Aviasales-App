@@ -1,0 +1,18 @@
+.error {
+  color: #ff4d4f;
+  background-color: #fff1f0;
+  border: 1px solid #ff4d4f;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+
+  }
+}

@@ -1,8 +1,9 @@
-// Действие для переключения фильтра
-export const TOGGLE_FILTER = 'TOGGLE_FILTER'
-
-// Действие для установки активной вкладки
 export const SET_ACTIVE_TAB = 'SET_ACTIVE_TAB'
+export const TOGGLE_FILTER = 'TOGGLE_FILTER'
+export const FETCH_TICKETS_REQUEST = 'FETCH_TICKETS_REQUEST'
+export const FETCH_TICKETS_SUCCESS = 'FETCH_TICKETS_SUCCESS'
+export const FETCH_TICKETS_FAILURE = 'FETCH_TICKETS_FAILURE'
 
-// Действие для установки типа сортировки
 export const SET_SORT = 'SET_SORT'
+
+export const SET_ACTIVE_TAB_SORTING = 'SET_ACTIVE_TAB_SORTING'
