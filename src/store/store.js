@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux'
-//import { composeWithDevTools } from '@redux-devtools/extension'
+import { composeWithDevTools } from '@redux-devtools/extension'
 import { thunk } from 'redux-thunk'
 
 import rootReducer from './reducers'
@@ -21,8 +21,8 @@ import rootReducer from './reducers'
 // Создание Redux хранилища с middleware и DevTools
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk),
-  //composeWithDevTools(applyMiddleware(thunk)),
+  //applyMiddleware(thunk),
+  composeWithDevTools(applyMiddleware(thunk)),
   // applyMiddleware(...middleware)
 )
 

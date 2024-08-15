@@ -10,7 +10,7 @@ import NoTickets from '../NoTickets'
 import Error from '../Error'
 import {
   fetchTickets,
-  loadMoreTickets,
+  //loadMoreTickets,
 } from '../../store/actions/ticketsActions'
 
 import styles from './App.module.scss'
@@ -32,8 +32,8 @@ const App = () => {
 
   // Обработчик для кнопки "Показать еще"
   const handleShowMore = () => {
-    //dispatch({ type: 'LOAD_MORE_TICKETS' })
-    dispatch(loadMoreTickets)
+    dispatch({ type: 'LOAD_MORE_TICKETS' })
+    //dispatch(loadMoreTickets)
   }
 
   // Обрезаем количество отображаемых билетов
