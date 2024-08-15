@@ -107,7 +107,6 @@ const ticketsReducer = (state = initialState, action) => {
       }
 
     case LOAD_MORE_TICKETS:
-      // Увеличение количества отображаемых билетов при нажатии "Загрузить больше"
       return {
         ...state,
         displayedTicketsCount: state.displayedTicketsCount + state.offset,
