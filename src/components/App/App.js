@@ -8,7 +8,10 @@ import Header from '../Header'
 import Spinner from '../Spinner'
 import NoTickets from '../NoTickets'
 import Error from '../Error'
-import { fetchTickets } from '../../store/actions/ticketsActions'
+import {
+  fetchTickets,
+  loadMoreTickets,
+} from '../../store/actions/ticketsActions'
 
 import styles from './App.module.scss'
 
@@ -29,7 +32,8 @@ const App = () => {
 
   // Обработчик для кнопки "Показать еще"
   const handleShowMore = () => {
-    dispatch({ type: 'LOAD_MORE_TICKETS' })
+    //dispatch({ type: 'LOAD_MORE_TICKETS' })
+    dispatch(loadMoreTickets)
   }
 
   // Обрезаем количество отображаемых билетов
@@ -41,19 +45,12 @@ const App = () => {
       <main className={styles.mainContent}>
         <Filter />
         <div className={styles.wrapper}>
-          <Tabs
-            tabs={tabs}
-            activeTab={activeTab}
-            // Здесь может быть функция handleTabClick, если необходимо
-          />
+          <Tabs tabs={tabs} activeTab={activeTab} />
           <div className={styles.flightList}>
             {/* Выводим спиннер, ошибку или список билетов */}
-            {loading ? (
-              <Spinner />
-            ) : error ? (
-              <Error message={'Ошибка загрузки билетов'} />
-            ) : tickets.length === 0 ? (
-              // <p>Нет доступных билетов</p>
+            {loading && <Spinner />}
+            {error && <Error message={'Ошибка загрузки билетов'} />}
+            {tickets.length === 0 && !error ? (
               <NoTickets />
             ) : (
               displayedTickets.map((flight, index) => (
@@ -61,8 +58,8 @@ const App = () => {
               ))
             )}
           </div>
-          {/* Кнопка для загрузки еще билетов */}
-          {!loading && tickets.length > displayedTicketsCount && (
+          {/* Кнопка для загрузки +5 билетов */}
+          {tickets.length > displayedTicketsCount && (
             <button className={styles.buttonShowMore} onClick={handleShowMore}>
               Показать еще 5 билетов
             </button>

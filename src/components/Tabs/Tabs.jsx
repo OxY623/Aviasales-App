@@ -2,7 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { setSort } from '../../store/actions/ticketsActions'
-import { SET_ACTIVE_TAB_SORTING } from '../../store/actions/actionTypes' // Убедитесь, что этот экшен импортирован правильно
+//import { SET_ACTIVE_TAB_SORTING } from '../../store/actions/actionTypes'
+import { setActiveTabSorting } from '../../store/actions/tabsActions'
 
 import styles from './Tabs.module.scss'
 
@@ -11,7 +12,8 @@ const Tabs = () => {
   const dispatch = useDispatch()
 
   const handleTabClick = (tab) => {
-    dispatch({ type: SET_ACTIVE_TAB_SORTING, payload: tab.name }) // Используйте правильный экшен
+    //dispatch({ type: SET_ACTIVE_TAB_SORTING, payload: tab.name })
+    dispatch(setActiveTabSorting(tab.name))
     dispatch(setSort(tab.name))
   }
 

@@ -8,11 +8,11 @@ import FlightProvider from './context/FlightContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <FlightProvider>
-        <App />
-      </FlightProvider>
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <FlightProvider>
+      <App />
+    </FlightProvider>
+  </Provider>,
+  // </React.StrictMode>,
 )

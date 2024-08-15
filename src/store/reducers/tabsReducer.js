@@ -12,16 +12,15 @@ const initialState = {
     { id: 2, name: 'fastest', label: TAB_OPTIONS.FASTEST },
     { id: 3, name: 'optimal', label: TAB_OPTIONS.OPTIMAL },
   ],
-  activeTab: 'cheapest', // Начальная активная вкладка
+  activeTab: 'cheapest',
 }
 
-// Редьюсер для обработки состояния вкладок
 const tabsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_TAB_SORTING:
       return {
         ...state,
-        activeTab: action.payload, // Обновляем активную вкладку
+        activeTab: action.payload,
       }
     default:
       return state

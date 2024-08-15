@@ -6,7 +6,7 @@ const Spinner = () => {
   return (
     <div className={styles.spinner}>
       <span className={styles.animation}></span>
-      <span className={styles.info}>Загрузка...</span>
+      <span className={styles.info}>Загрузка билетов...</span>
     </div>
   )
 }
